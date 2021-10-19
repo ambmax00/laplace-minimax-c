@@ -2,23 +2,12 @@
 #include <iomanip>
 #include <stdexcept>
 
-void minimax::compute(double eps_min, double eps_homo, double eps_lumo, 
-	double eps_max, int k) 
+void minimax::compute(int k, double ymin, double ymax) 
 {
 	
 	os<1>("Starting Minimax...\n");
 	
-	os<1>("Energies: ", eps_min, " ", eps_homo, " ", eps_lumo,
-		" ", eps_max, '\n');
-	
-	// setup Emin, Emax, R
-	
-	double Emin, Emax, R;
-	
-	Emin = 2 * (eps_lumo - eps_homo);
-	Emax = 2 * (eps_max - eps_min);
-	
-	R = Emax/Emin;
+	double R = ymax/ymin;
 	
 	os<1>("R: ", R, '\n');
 	
@@ -60,8 +49,8 @@ void minimax::compute(double eps_min, double eps_homo, double eps_lumo,
 		throw std::runtime_error("MINIMAX: Remez did not converge");
 	}
 	
-	omega_guess /= (float128)Emin;
-	alpha_guess /= (float128)Emin;
+	omega_guess /= (float128)ymin;
+	alpha_guess /= (float128)ymin;
 		
 	os<1>("Final scaled weights:\n", omega_guess, '\n');
 	os<1>("Final scaled exponents:\n", alpha_guess, '\n');

@@ -79,7 +79,7 @@ public:
 
 	minimax(int print_level = 0) : _print_level(print_level) {}
 	
-	void compute(double emin, double ehomo, double elumo, double emax, int k);
+  void compute(int k, double ymin, double ymax);
 	
 	std::vector<double> weights() {
 		return _weights;

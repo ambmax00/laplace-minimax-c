@@ -47,7 +47,8 @@ std::tuple<Eigen::VectorXq,Eigen::VectorXq>
 	
 	os<1>("Reading initial guess for omegas/alphas\n");
 	
-	std::string filename = "init_para.txt";
+	std::string filename = std::string(LAPLACE_ROOT) + 
+    std::string("/init_para.txt");
 	
 	std::ifstream infile(filename);
 	

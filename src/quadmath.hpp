@@ -12,9 +12,6 @@
 #include <Eigen/Core>
 #include <Eigen/Dense>
 
-#define GNU_CXX
-//#define INTEL_CXX
-
 #if not defined(GNU_CXX) && not defined(INTEL_CXX)
 #error "Header float128.hpp could not be configured for this compiler."
 #endif

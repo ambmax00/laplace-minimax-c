@@ -16,21 +16,21 @@ set(LAPLACE_INSTALL ${CMAKE_INSTALL_PREFIX})
 set(LAPLACE_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
 
 include_directories(
-	${CMAKE_CURRENT_SOURCE_DIR}
+	${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
 configure_file(
-        ${CMAKE_CURRENT_SOURCE_DIR}/minimax_read.cpp
-        ${CMAKE_CURRENT_BINARY_DIR}/minimax_read.cpp @ONLY
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/minimax_read.cpp
+        ${CMAKE_CURRENT_BINARY_DIR}/src/minimax_read.cpp @ONLY
 )
 
 add_executable(
 	laplace
-	main.cpp
-	minimax.cpp
-	minimax_maehly.cpp
-	minimax_paraopt.cpp
-	${CMAKE_CURRENT_BINARY_DIR}/minimax_read.cpp
+	src/main.cpp
+	src/minimax.cpp
+	src/minimax_maehly.cpp
+	src/minimax_paraopt.cpp
+	${CMAKE_CURRENT_BINARY_DIR}/src/minimax_read.cpp
 )
 
 target_link_libraries(
